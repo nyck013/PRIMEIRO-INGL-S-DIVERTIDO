@@ -734,10 +734,22 @@
       .mobile-cta{display:block;}
       .footer{padding-bottom:96px;}
     }
+
+    .readbar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0%;
+  background: linear-gradient(90deg, var(--yellow), var(--blue));
+  z-index: 1300;
+  box-shadow: 0 8px 18px rgba(37,99,235,.18);
+}
   </style>
 </head>
 <body>
   <header class="navbar">
+    <div class="readbar" id="readbar" aria-hidden="true"></div>
     <div class="container nav-wrapper">
       <a href="#topo" class="logo">Primeiro Inglês Divertido</a>
     </div>
@@ -1091,5 +1103,17 @@
       });
     });
   </script>
+
+  <script>const readbar = document.getElementById("readbar");
+
+function updateReadbar(){
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  readbar.style.width = progress + "%";
+}
+
+window.addEventListener("scroll", updateReadbar);
+updateReadbar();</script>
 </body>
 </html>
