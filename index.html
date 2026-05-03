@@ -668,6 +668,62 @@
       background:rgba(37,99,235,.10);color:var(--blue-dark);font-size:13px;font-weight:800;margin-bottom:18px;
     }
     .price-card h3{font-size:35px;line-height:1.12;margin-bottom:10px;}
+
+    .offer-timer{
+      max-width:430px;
+      margin:0 auto 18px;
+      padding:16px 18px;
+      border-radius:24px;
+      background:linear-gradient(180deg,#fff7ed 0%, #fffbeb 100%);
+      border:1px solid rgba(251,191,36,.45);
+      box-shadow:0 14px 30px rgba(251,191,36,.16);
+      color:#92400e;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .offer-timer i{color:var(--yellow-dark);}
+
+    .offer-timer strong{
+      color:var(--danger);
+      font-size:22px;
+      letter-spacing:.5px;
+    }
+
+    .bonus-box{
+      max-width:430px;
+      margin:0 auto 20px;
+      padding:18px 20px;
+      border-radius:24px;
+      background:linear-gradient(180deg,#eff6ff 0%, #ffffff 100%);
+      border:1px solid rgba(37,99,235,.18);
+      box-shadow:var(--shadow-xs);
+      text-align:left;
+    }
+
+    .bonus-box-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--blue-dark);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:16px;
+    }
+
+    .bonus-box-title i{color:var(--yellow-dark);}
+
+    .bonus-box p{
+      color:var(--text);
+      font-size:15px;
+      font-weight:600;
+      margin:0;
+    }
+
     .price-old{font-size:18px;color:var(--muted);text-decoration:line-through;font-weight:700;}
     .price{font-size:clamp(56px,7vw,92px);line-height:1;font-weight:800;color:var(--blue);letter-spacing:-2px;margin:8px 0 10px;}
     .price-desc{color:var(--text);font-size:18px;margin-bottom:20px;}
@@ -959,15 +1015,28 @@
 
           <div class="price-card">
             <div class="price-badge"><i class="fa-solid fa-bolt"></i> Oferta especial</div>
+            <div class="offer-timer">
+              <i class="fa-solid fa-clock"></i>
+              Oferta liberada por apenas <strong id="countdown">10:00</strong>
+            </div>
             <h3>Comece hoje mesmo</h3>
             <div class="price-old">De R$47 por</div>
             <div class="price">R$27,90</div>
             <div class="price-desc">Pagamento único • acesso imediato</div>
 
+            <div class="bonus-box">
+              <div class="bonus-box-title">
+                <i class="fa-solid fa-gift"></i>
+                Bônus inclusos hoje
+              </div>
+              <p>Leve também Flashcards + Pronúncias para ajudar seu filho a revisar as palavras e praticar de forma mais divertida.</p>
+            </div>
+
             <ul class="offer-checks">
               <li><i class="fa-solid fa-circle-check"></i> Material digital pronto para baixar</li>
               <li><i class="fa-solid fa-circle-check"></i> Atividades simples para aplicar em casa</li>
               <li><i class="fa-solid fa-circle-check"></i> Ideal para começar mesmo do zero</li>
+              <li><i class="fa-solid fa-circle-check"></i> Bônus Flashcards + Pronúncias inclusos</li>
             </ul>
 
             <a href="https://pay.cakto.com.br/35xwjez_837156" class="buy-btn">
@@ -1101,6 +1170,27 @@
         }
       });
     });
+  </script>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    let countdownTime = 10 * 60;
+
+    function updateCountdown(){
+      if (!countdownEl) return;
+
+      const minutes = Math.floor(countdownTime / 60);
+      const seconds = countdownTime % 60;
+
+      countdownEl.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+      if (countdownTime > 0) {
+        countdownTime--;
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 
   <script>const readbar = document.getElementById("readbar");
