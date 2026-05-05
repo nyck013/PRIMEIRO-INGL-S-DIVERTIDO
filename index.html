@@ -1017,11 +1017,11 @@
             <div class="price-badge"><i class="fa-solid fa-bolt"></i> Oferta especial</div>
             <div class="offer-timer">
               <i class="fa-solid fa-clock"></i>
-              Oferta liberada por apenas <strong id="countdown">10:00</strong>
+             Oferta liberada por apenas <strong id="countdown">3d 00h 00m 00s</strong>
             </div>
             <h3>Comece hoje mesmo</h3>
             <div class="price-old">De R$47 por</div>
-            <div class="price">R$19,90</div>
+            <div class="price">R$27,90</div>
             <div class="price-desc">Pagamento único • acesso imediato</div>
 
             <div class="bonus-box">
@@ -1173,25 +1173,27 @@
   </script>
 
   <script>
-    const countdownEl = document.getElementById("countdown");
-    let countdownTime = 10 * 60;
+  const countdownEl = document.getElementById("countdown");
+  let countdownTime = 3 * 24 * 60 * 60;
 
-    function updateCountdown(){
-      if (!countdownEl) return;
+  function updateCountdown(){
+    if (!countdownEl) return;
 
-      const minutes = Math.floor(countdownTime / 60);
-      const seconds = countdownTime % 60;
+    const days = Math.floor(countdownTime / (24 * 60 * 60));
+    const hours = Math.floor((countdownTime % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((countdownTime % (60 * 60)) / 60);
+    const seconds = countdownTime % 60;
 
-      countdownEl.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    countdownEl.textContent = `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
 
-      if (countdownTime > 0) {
-        countdownTime--;
-      }
+    if (countdownTime > 0) {
+      countdownTime--;
     }
+  }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
   <script>const readbar = document.getElementById("readbar");
 
