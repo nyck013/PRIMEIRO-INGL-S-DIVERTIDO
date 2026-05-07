@@ -1104,7 +1104,7 @@
               <span>O material é indicado para quem está começando do zero?</span>
               <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Sim. O ebook foi pensado justamente para o início do contato com o inglês, com linguagem simples e atividades apropriadas para crianças pequenas.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Sim. O Material foi pensado justamente para o início do contato com o inglês, com linguagem simples e atividades apropriadas para crianças pequenas.</div></div>
           </div>
 
           <div class="faq-item">
@@ -1172,23 +1172,36 @@
     });
   </script>
 
-  <script>
+<script>
   const countdownEl = document.getElementById("countdown");
-  let countdownTime = 3 * 24 * 60 * 60;
+
+  const countdownDuration = 3 * 24 * 60 * 60 * 1000; // 3 dias em milissegundos
+
+  let countdownEnd = localStorage.getItem("countdownEnd");
+
+  if (!countdownEnd) {
+    countdownEnd = Date.now() + countdownDuration;
+    localStorage.setItem("countdownEnd", countdownEnd);
+  }
 
   function updateCountdown(){
     if (!countdownEl) return;
 
-    const days = Math.floor(countdownTime / (24 * 60 * 60));
-    const hours = Math.floor((countdownTime % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((countdownTime % (60 * 60)) / 60);
-    const seconds = countdownTime % 60;
+    const now = Date.now();
+    const distance = countdownEnd - now;
 
-    countdownEl.textContent = `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
-
-    if (countdownTime > 0) {
-      countdownTime--;
+    if (distance <= 0) {
+      countdownEl.textContent = "Oferta encerrada";
+      return;
     }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.textContent =
+      `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
   }
 
   updateCountdown();
