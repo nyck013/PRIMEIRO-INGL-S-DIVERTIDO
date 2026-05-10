@@ -626,11 +626,52 @@
     .panel h3{font-size:21px;margin-bottom:8px;}
     .panel p{font-size:15.5px;color:var(--text);}
 
-    .testimonial{padding:28px 24px;height:100%;}
-    .stars{color:var(--yellow-dark);font-size:18px;margin-bottom:14px;}
-    .testimonial p{font-size:16px;color:var(--text);margin-bottom:16px;}
-    .testimonial strong{display:block;color:var(--ink);font-size:15px;margin-bottom:4px;}
-    .testimonial span{color:var(--muted);font-size:14px;font-weight:600;}
+  .testimonial{
+  padding:28px 24px;
+  height:100%;
+}
+
+.testimonial-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.testimonial-photo{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--blue-soft-2);
+  box-shadow:0 8px 18px rgba(15,23,42,.12);
+  flex:0 0 auto;
+}
+
+.testimonial-info strong{
+  display:block;
+  color:var(--ink);
+  font-size:15px;
+  margin-bottom:2px;
+}
+
+.testimonial-info span{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:600;
+}
+
+.stars{
+  color:var(--yellow-dark);
+  font-size:18px;
+  margin-bottom:14px;
+}
+
+.testimonial p{
+  font-size:16px;
+  color:var(--text);
+  margin-bottom:0;
+}
 
     .receive-list{max-width:940px;margin:0 auto;display:grid;gap:16px;}
     .receive-item{
@@ -951,35 +992,66 @@
         </div>
 
         <div class="grid">
-          <article class="testimonial">
-            <div class="stars" aria-label="5 estrelas">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p>"Meu filho de 5 anos adorou as atividades de cores e começou a repetir algumas palavras em inglês sozinho."</p>
-            <strong>Mariana Costa</strong>
-            <span>Mãe do Davi, 5 anos</span>
-          </article>
-
-          <article class="testimonial">
-            <div class="stars" aria-label="5 estrelas">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p>"Gostei porque é fácil de aplicar em casa. Não preciso preparar nada complicado e minha filha se diverte."</p>
-            <strong>Patrícia Almeida</strong>
-            <span>Mãe da Helena, 4 anos</span>
-          </article>
-
-          <article class="testimonial">
-            <div class="stars" aria-label="5 estrelas">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p>"Virou um momento gostoso aqui em casa. Minha filha pede para fazer as atividades quase todos os dias."</p>
-            <strong>Renata Souza</strong>
-            <span>Mãe da Laura, 6 anos</span>
-          </article>
-        </div>
+  <article class="testimonial">
+    <div class="testimonial-header">
+      <img src="avaliacao-1.jpg" alt="Foto de Mariana Costa" class="testimonial-photo" />
+      <div class="testimonial-info">
+        <strong>Mariana Costa</strong>
+        <span>Mãe do Davi, 5 anos</span>
       </div>
-    </section>
+    </div>
+
+    <div class="stars" aria-label="5 estrelas">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <p>"Meu filho de 5 anos adorou as atividades de cores e começou a repetir algumas palavras em inglês sozinho."</p>
+  </article>
+
+  <article class="testimonial">
+    <div class="testimonial-header">
+      <img src="avaliacao-2.jpg" alt="Foto de Patrícia Almeida" class="testimonial-photo" />
+      <div class="testimonial-info">
+        <strong>Patrícia Almeida</strong>
+        <span>Mãe da Helena, 4 anos</span>
+      </div>
+    </div>
+
+    <div class="stars" aria-label="5 estrelas">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <p>"Gostei porque é fácil de aplicar em casa. Não preciso preparar nada complicado e minha filha se diverte."</p>
+  </article>
+
+  <article class="testimonial">
+    <div class="testimonial-header">
+      <img src="avaliacao-3.jpg" alt="Foto de Renata Souza" class="testimonial-photo" />
+      <div class="testimonial-info">
+        <strong>Renata Souza</strong>
+        <span>Mãe da Laura, 6 anos</span>
+      </div>
+    </div>
+
+    <div class="stars" aria-label="5 estrelas">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <p>"Virou um momento gostoso aqui em casa. Minha filha pede para fazer as atividades quase todos os dias."</p>
+  </article>
+</div>
 
     <section class="section" aria-label="O que você recebe">
       <div class="container">
