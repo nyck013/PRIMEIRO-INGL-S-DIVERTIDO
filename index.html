@@ -626,39 +626,26 @@
     .panel h3{font-size:21px;margin-bottom:8px;}
     .panel p{font-size:15.5px;color:var(--text);}
 
-  .testimonial{
-  padding:28px 24px;
+ .testimonial{
+  padding:24px;
   height:100%;
+  overflow:hidden;
 }
 
-.testimonial-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:14px;
+.testimonial-photo-real{
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:22px;
+  overflow:hidden;
+  margin-bottom:18px;
+  background:var(--blue-soft);
+  border:1px solid rgba(226,232,240,.85);
 }
 
-.testimonial-photo{
-  width:58px;
-  height:58px;
-  border-radius:50%;
+.testimonial-photo-real img{
+  width:100%;
+  height:100%;
   object-fit:cover;
-  border:3px solid var(--blue-soft-2);
-  box-shadow:0 8px 18px rgba(15,23,42,.12);
-  flex:0 0 auto;
-}
-
-.testimonial-info strong{
-  display:block;
-  color:var(--ink);
-  font-size:15px;
-  margin-bottom:2px;
-}
-
-.testimonial-info span{
-  color:var(--muted);
-  font-size:14px;
-  font-weight:600;
 }
 
 .stars{
@@ -670,7 +657,20 @@
 .testimonial p{
   font-size:16px;
   color:var(--text);
-  margin-bottom:0;
+  margin-bottom:16px;
+}
+
+.testimonial strong{
+  display:block;
+  color:var(--ink);
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.testimonial span{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:600;
 }
 
     .receive-list{max-width:940px;margin:0 auto;display:grid;gap:16px;}
@@ -991,67 +991,73 @@
           </p>
         </div>
 
-        <div class="grid">
-  <article class="testimonial">
-    <div class="testimonial-header">
-      <img src="avaliacao-1.jpg" alt="Foto de Mariana Costa" class="testimonial-photo" />
-      <div class="testimonial-info">
+        <section class="section alt" aria-label="Depoimentos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Prova social</div>
+      <h2>O que os pais dizem</h2>
+      <p class="section-subtitle">
+        Relatos que mostram como o material é simples de aplicar e agradável para as crianças.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="testimonial">
+        <div class="testimonial-photo-real">
+          <img src="avaliacao-filho-1.jpg" alt="Criança fazendo atividade de inglês em casa" />
+        </div>
+
+        <div class="stars" aria-label="5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p>"Meu filho de 5 anos adorou as atividades de cores e começou a repetir algumas palavras em inglês sozinho."</p>
         <strong>Mariana Costa</strong>
         <span>Mãe do Davi, 5 anos</span>
-      </div>
-    </div>
+      </article>
 
-    <div class="stars" aria-label="5 estrelas">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-    </div>
+      <article class="testimonial">
+        <div class="testimonial-photo-real">
+          <img src="avaliacao-filho-2.jpg" alt="Criança usando atividade impressa de inglês na mesa" />
+        </div>
 
-    <p>"Meu filho de 5 anos adorou as atividades de cores e começou a repetir algumas palavras em inglês sozinho."</p>
-  </article>
+        <div class="stars" aria-label="5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
 
-  <article class="testimonial">
-    <div class="testimonial-header">
-      <img src="avaliacao-2.jpg" alt="Foto de Patrícia Almeida" class="testimonial-photo" />
-      <div class="testimonial-info">
+        <p>"Gostei porque é fácil de aplicar em casa. Não preciso preparar nada complicado e minha filha se diverte."</p>
         <strong>Patrícia Almeida</strong>
         <span>Mãe da Helena, 4 anos</span>
-      </div>
-    </div>
+      </article>
 
-    <div class="stars" aria-label="5 estrelas">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-    </div>
+      <article class="testimonial">
+        <div class="testimonial-photo-real">
+          <img src="avaliacao-filho-3.jpg" alt="Criança fazendo atividade com flashcards de inglês" />
+        </div>
 
-    <p>"Gostei porque é fácil de aplicar em casa. Não preciso preparar nada complicado e minha filha se diverte."</p>
-  </article>
+        <div class="stars" aria-label="5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
 
-  <article class="testimonial">
-    <div class="testimonial-header">
-      <img src="avaliacao-3.jpg" alt="Foto de Renata Souza" class="testimonial-photo" />
-      <div class="testimonial-info">
+        <p>"Virou um momento gostoso aqui em casa. Minha filha pede para fazer as atividades quase todos os dias."</p>
         <strong>Renata Souza</strong>
         <span>Mãe da Laura, 6 anos</span>
-      </div>
+      </article>
     </div>
-
-    <div class="stars" aria-label="5 estrelas">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-    </div>
-
-    <p>"Virou um momento gostoso aqui em casa. Minha filha pede para fazer as atividades quase todos os dias."</p>
-  </article>
-</div>
+  </div>
+</section>
 
     <section class="section" aria-label="O que você recebe">
       <div class="container">
