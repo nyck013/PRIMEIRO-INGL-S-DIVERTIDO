@@ -1083,24 +1083,42 @@
             <p>Se você não gostar do material, devolvemos 100% do seu dinheiro. Sem burocracia e sem risco para testar.</p>
           </div>
 
-          <div class="price-card">
-            <div class="price-badge"><i class="fa-solid fa-bolt"></i> Oferta especial</div>
-            <div class="offer-timer">
-              <i class="fa-solid fa-clock"></i>
-             Oferta liberada por apenas <strong id="countdown"> 1h 00m 00s</strong>
-            </div>
-            <h3>Comece hoje mesmo</h3>
-            <div class="price-old">De R$47 por</div>
-            <div class="price">R$27,90</div>
-            <div class="price-desc">Pagamento único • acesso imediato</div>
+       <div class="price-card">
+  <div class="price-badge"><i class="fa-solid fa-bolt"></i> Oferta especial</div>
 
-            <div class="bonus-box">
-              <div class="bonus-box-title">
-                <i class="fa-solid fa-gift"></i>
-                Bônus inclusos hoje
-              </div>
-              <p>Leve também Flashcards + Pronúncias para ajudar seu filho a revisar as palavras e praticar de forma mais divertida.</p>
-            </div>
+  <div class="offer-timer">
+    <i class="fa-solid fa-clock"></i>
+    Oferta liberada por apenas <strong id="countdown">01h 00m 00s</strong>
+  </div>
+
+  <h3>Comece hoje mesmo</h3>
+
+  <div class="price-old" id="oldPrice">De R$47 por</div>
+  <div class="price" id="currentPrice">R$27,90</div>
+  <div class="price-desc" id="priceDesc">Pagamento único • acesso imediato</div>
+
+  <div class="bonus-box">
+    <div class="bonus-box-title">
+      <i class="fa-solid fa-gift"></i>
+      Bônus inclusos hoje
+    </div>
+    <p>Leve também Flashcards + Pronúncias para ajudar seu filho a revisar as palavras e praticar de forma mais divertida.</p>
+  </div>
+
+  <ul class="offer-checks">
+    <li><i class="fa-solid fa-circle-check"></i> Material digital pronto para baixar</li>
+    <li><i class="fa-solid fa-circle-check"></i> Atividades simples para aplicar em casa</li>
+    <li><i class="fa-solid fa-circle-check"></i> Ideal para começar mesmo do zero</li>
+    <li><i class="fa-solid fa-circle-check"></i> Bônus Flashcards + Pronúncias inclusos</li>
+  </ul>
+
+  <a href="LINK-CHECKOUT-27-90" class="buy-btn" id="checkoutButton">
+    <i class="fa-solid fa-download"></i>
+    QUERO ENSINAR MEU FILHO AGORA
+  </a>
+
+  <div class="price-note" id="priceNote">Liberação rápida após a compra.</div>
+</div>
 
             <ul class="offer-checks">
               <li><i class="fa-solid fa-circle-check"></i> Material digital pronto para baixar</li>
@@ -1244,8 +1262,18 @@
 
 <script>
   const countdownEl = document.getElementById("countdown");
+  const currentPriceEl = document.getElementById("currentPrice");
+  const oldPriceEl = document.getElementById("oldPrice");
+  const priceDescEl = document.getElementById("priceDesc");
+  const priceNoteEl = document.getElementById("priceNote");
+  const checkoutButton = document.getElementById("checkoutButton");
 
-  const countdownDuration = 60 * 60 * 1000; // 1 hora em milissegundos
+  // LINKS DOS CHECKOUTS
+  const checkoutPromocional = "LINK-CHECKOUT-27-90";
+  const checkoutNormal = "LINK-CHECKOUT-47-00";
+
+  // 1 hora
+  const countdownDuration = 60 * 60 * 1000;
 
   let countdownEnd = localStorage.getItem("countdownEnd1Hora");
 
@@ -1254,16 +1282,43 @@
     localStorage.setItem("countdownEnd1Hora", countdownEnd);
   }
 
-  function updateCountdown(){
+  function ativarPrecoNormal() {
+    if (countdownEl) countdownEl.textContent = "Oferta encerrada";
+    if (oldPriceEl) oldPriceEl.style.display = "none";
+    if (currentPriceEl) currentPriceEl.textContent = "R$47,00";
+    if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
+    if (priceNoteEl) priceNoteEl.textContent = "Oferta promocional encerrada. Valor normal aplicado.";
+    
+    if (checkoutButton) {
+      checkoutButton.href = checkoutNormal;
+      checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> COMPRAR AGORA POR R$47,00';
+    }
+  }
+
+  function ativarPrecoPromocional() {
+    if (oldPriceEl) oldPriceEl.style.display = "block";
+    if (currentPriceEl) currentPriceEl.textContent = "R$27,90";
+    if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
+    if (priceNoteEl) priceNoteEl.textContent = "Liberação rápida após a compra.";
+
+    if (checkoutButton) {
+      checkoutButton.href = checkoutPromocional;
+      checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> QUERO ENSINAR MEU FILHO AGORA';
+    }
+  }
+
+  function updateCountdown() {
     if (!countdownEl) return;
 
     const now = Date.now();
-    const distance = countdownEnd - now;
+    const distance = Number(countdownEnd) - now;
 
     if (distance <= 0) {
-      countdownEl.textContent = "Oferta encerrada";
+      ativarPrecoNormal();
       return;
     }
+
+    ativarPrecoPromocional();
 
     const hours = Math.floor(distance / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
