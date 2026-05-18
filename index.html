@@ -1252,8 +1252,10 @@
   const priceDescEl = document.getElementById("priceDesc");
   const priceNoteEl = document.getElementById("priceNote");
   const checkoutButton = document.getElementById("checkoutButton");
-  const checkoutLinks = document.querySelectorAll(".checkout-link");
-
+const mobileCheckoutButton = document.getElementById("mobileCheckoutButton");
+const mobilePriceEl = document.getElementById("mobilePrice");
+const checkoutLinks = document.querySelectorAll(".checkout-link");
+  
   const checkoutPromocional = "https://pay.cakto.com.br/35xwjez_837156";
   const checkoutNormal = "https://pay.cakto.com.br/nmbr4it";
 
@@ -1273,32 +1275,43 @@
   }
 
   function ativarPrecoNormal() {
-    if (countdownEl) countdownEl.textContent = "Oferta encerrada";
-    if (oldPriceEl) oldPriceEl.style.display = "none";
-    if (currentPriceEl) currentPriceEl.textContent = "R$47,00";
-    if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
-    if (priceNoteEl) priceNoteEl.textContent = "Oferta promocional encerrada. Valor normal aplicado.";
+  if (countdownEl) countdownEl.textContent = "Oferta encerrada";
+  if (oldPriceEl) oldPriceEl.style.display = "none";
+  if (currentPriceEl) currentPriceEl.textContent = "R$47,00";
+  if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
+  if (priceNoteEl) priceNoteEl.textContent = "Oferta promocional encerrada. Valor normal aplicado.";
 
-    mudarTodosCheckouts(checkoutNormal);
+  mudarTodosCheckouts(checkoutNormal);
 
-    if (checkoutButton) {
-      checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> COMPRAR AGORA POR R$47,00';
-    }
+  if (checkoutButton) {
+    checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> COMPRAR AGORA POR R$47,00';
   }
 
-  function ativarPrecoPromocional() {
-    if (oldPriceEl) oldPriceEl.style.display = "block";
-    if (currentPriceEl) currentPriceEl.textContent = "R$27,90";
-    if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
-    if (priceNoteEl) priceNoteEl.textContent = "Liberação rápida após a compra.";
+  if (mobilePriceEl) mobilePriceEl.textContent = "R$47,00";
 
-    mudarTodosCheckouts(checkoutPromocional);
+  if (mobileCheckoutButton) {
+    mobileCheckoutButton.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Comprar agora por <span id="mobilePrice">R$47,00</span>';
+  }
+}
 
-    if (checkoutButton) {
-      checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> QUERO ENSINAR MEU FILHO AGORA';
-    }
+function ativarPrecoPromocional() {
+  if (oldPriceEl) oldPriceEl.style.display = "block";
+  if (currentPriceEl) currentPriceEl.textContent = "R$27,90";
+  if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
+  if (priceNoteEl) priceNoteEl.textContent = "Liberação rápida após a compra.";
+
+  mudarTodosCheckouts(checkoutPromocional);
+
+  if (checkoutButton) {
+    checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> QUERO ENSINAR MEU FILHO AGORA';
   }
 
+  if (mobilePriceEl) mobilePriceEl.textContent = "R$27,90";
+
+  if (mobileCheckoutButton) {
+    mobileCheckoutButton.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Comprar agora por <span id="mobilePrice">R$27,90</span>';
+  }
+}
   function updateCountdown() {
     if (!countdownEl) return;
 
