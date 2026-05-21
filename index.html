@@ -842,6 +842,121 @@
   z-index: 1300;
   box-shadow: 0 8px 18px rgba(37,99,235,.18);
 }
+
+.receive-item{
+  position:relative;
+}
+
+.bonus-label{
+  margin-left:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--yellow) 0%, var(--yellow-dark) 100%);
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  line-height:1;
+  box-shadow:0 10px 22px rgba(251,191,36,.28);
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+}
+
+
+  .receive-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:52px 1fr auto;
+    align-items:center;
+    gap:16px;
+  }
+
+  .bonus-label{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--yellow) 0%, var(--yellow-dark) 100%);
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    line-height:1;
+    box-shadow:0 10px 22px rgba(251,191,36,.28);
+    pointer-events:none;
+    user-select:none;
+    white-space:nowrap;
+    justify-self:end;
+  }
+
+  .bonus-label i{
+    width:auto !important;
+    height:auto !important;
+    min-width:auto !important;
+    border-radius:0 !important;
+    background:none !important;
+    color:#fff !important;
+    font-size:14px !important;
+    box-shadow:none !important;
+    flex:0 0 auto !important;
+    display:inline-flex !important;
+  }
+
+  @media (max-width:640px){
+    .receive-item{
+      grid-template-columns:46px 1fr;
+      gap:12px 14px;
+      padding:18px 16px;
+    }
+
+    .receive-item > i{
+      width:46px;
+      height:46px;
+      font-size:18px;
+    }
+
+    .receive-item span{
+      font-size:15px;
+      line-height:1.35;
+    }
+
+    .bonus-label{
+      grid-column:2;
+      justify-self:start;
+      width:max-content;
+      margin-top:2px;
+      padding:8px 12px;
+      font-size:12.5px;
+    }
+  }
+
+  @media (max-width:380px){
+    .receive-item{
+      grid-template-columns:42px 1fr;
+      padding:16px 14px;
+    }
+
+    .receive-item > i{
+      width:42px;
+      height:42px;
+      font-size:17px;
+    }
+
+    .receive-item span{
+      font-size:14.5px;
+    }
+
+    .bonus-label{
+      font-size:12px;
+      padding:7px 11px;
+    }
+  }
+</style>
   </style>
 </head>
 <body>
@@ -877,23 +992,35 @@
             Ensine inglês ao seu filho com atividades prontas e <span>divertidas em casa</span>
           </h1>
 
-          <p>
-            Um Material criado para crianças de 3 a 8 anos aprenderem as primeiras palavras em inglês de forma leve, visual e sem pressão. É só baixar, imprimir e começar.
-          </p>
+           <div class="container">
+            <div class="section-tag">Assista à apresentação</div>
+        </div>
+        <div class="section-header">
+         
 
-          <ul class="hero-list">
-            <li><i class="fa-solid fa-check"></i> Atividades prontas para imprimir</li>
-            <li><i class="fa-solid fa-check"></i> Ideal para pais ensinarem em casa</li>
-            <li><i class="fa-solid fa-check"></i> Você não precisa ser fluente em inglês</li>
-          </ul>
-
-          <div class="hero-actions">
-            <div class="hero-notes">
-              <div class="hero-note"><i class="fa-solid fa-circle-check"></i> Pagamento único</div>
-              <div class="hero-note"><i class="fa-solid fa-bolt"></i> Acesso imediato</div>
-              <div class="hero-note"><i class="fa-solid fa-shield-heart"></i> Garantia de 7 dias</div>
-            </div>
+        <div class="video-showcase">
+          <div class="video-card-label">
+            
           </div>
+ 
+          <div class="video-wrapper">
+            <video controls playsinline preload="metadata" poster="capa-video.png">
+              <source src="RED.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo HTML5.
+            </video>
+            <button class="video-play-button" type="button" aria-label="Reproduzir vídeo de apresentação">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="section-cta">
+         <a href="https://pay.cakto.com.br/35xwjez_837156" class="secondary-btn checkout-link">
+  <i class="fa-solid fa-download"></i>
+  QUERO COMEÇAR AGORA
+</a>
+        </div>
+      </div>
 
           <div class="hero-mini-proof">
             <div class="mini-proof-card">
@@ -914,72 +1041,47 @@
       </div>
     </section>
 
-    <section class="video-section" aria-label="Vídeo de apresentação do produto">
+      <section class="section" aria-label="O que você recebe">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Assista à apresentação</div>
-          <h2>Veja como o Primeiro Inglês Divertido funciona</h2>
+          <div class="section-tag">O que você recebe</div>
+          <h2>Tudo pronto para começar</h2>
           <p class="section-subtitle">
-            Uma apresentação rápida para mostrar como o material ajuda a criança a aprender inglês em casa com atividades prontas, leves e divertidas.
+            Um material digital prático, educativo e preparado para uso imediato.
           </p>
         </div>
 
-        <div class="video-showcase">
-          <div class="video-card-label">
-            
-          </div>
+        <div class="receive-list">
+          <div class="receive-item"><i class="fa-solid fa-file-arrow-down"></i><span>Kit completo de atividades organizadas por tema</span></div>
+          <div class="receive-item"><i class="fa-solid fa-print"></i><span>Atividades prontas para imprimir em casa</span></div>
+          <div class="receive-item">
+  <i class="fa-regular fa-clone"></i>
+  <span>Flashcards para revisar as palavras brincando</span>
 
-          <div class="video-wrapper">
-            <video controls playsinline preload="metadata" poster="capa-video.png">
-              <source src="RED.mp4" type="video/mp4" />
-              Seu navegador não suporta vídeo HTML5.
-            </video>
-            <button class="video-play-button" type="button" aria-label="Reproduzir vídeo de apresentação">
-              <i class="fa-solid fa-play"></i>
-            </button>
-          </div>
+  <div class="bonus-label">
+    <i class="fa-solid fa-gift"></i>
+    Bônus
+  </div>
+</div>
+
+<div class="receive-item">
+  <i class="fa-solid fa-circle-play"></i>
+  <span>Pronúncias em Áudio para ouvir e repetir corretamente</span>
+
+  <div class="bonus-label">
+    <i class="fa-solid fa-gift"></i>
+    Bônus
+  </div>
+</div>
         </div>
 
-        <div class="section-cta">
-         <a href="https://pay.cakto.com.br/35xwjez_837156" class="secondary-btn checkout-link">
-  <i class="fa-solid fa-download"></i>
-  QUERO COMEÇAR AGORA
-</a>
+        <div class="receive-note">
+          Material digital com liberação rápida e uso simples para a rotina da família.
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Benefícios do aprendizado">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">Benefícios reais</div>
-          <h2>O que esse aprendizado desenvolve na criança</h2>
-          <p class="section-subtitle">
-            Mais do que aprender palavras, a criança ganha confiança, estímulo e contato positivo com o idioma.
-          </p>
-        </div>
-
-        <div class="grid">
-          <article class="panel">
-            <div class="benefit-icon"><i class="fa-solid fa-brain"></i></div>
-            <h3>Estimula o cérebro</h3>
-            <p>O contato com um novo idioma desde cedo contribui para o desenvolvimento cognitivo e para a curiosidade da criança.</p>
-          </article>
-
-          <article class="panel">
-            <div class="benefit-icon"><i class="fa-solid fa-book-open"></i></div>
-            <h3>Aumenta o vocabulário</h3>
-            <p>As primeiras palavras em inglês passam a fazer parte do dia a dia com mais naturalidade.</p>
-          </article>
-
-          <article class="panel">
-            <div class="benefit-icon"><i class="fa-solid fa-face-smile"></i></div>
-            <h3>Aprender vira diversão</h3>
-            <p>As atividades foram pensadas para manter o interesse e transformar o estudo em brincadeira.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    
 
     
 
@@ -1007,7 +1109,7 @@
           <i class="fa-solid fa-star"></i>
         </div>
 
-        <p>"Meu filho de 5 anos adorou as atividades de cores e começou a repetir algumas palavras em inglês sozinho."</p>
+        <p>"Eu comprei porque queria começar a ensinar inglês em casa, mas não sabia nem por onde começar. Gostei porque é só imprimir e fazer junto. Meu filho ficou todo animado com os desenhos e repetiu algumas palavrinhas sem eu ficar forçando"</p>
         <strong>Mariana Costa</strong>
         <span>Mãe do Davi, 5 anos</span>
       </article>
@@ -1025,7 +1127,7 @@
           <i class="fa-solid fa-star"></i>
         </div>
 
-        <p>"Gostei porque é fácil de aplicar em casa. Não preciso preparar nada complicado e minha filha se diverte."</p>
+        <p>"Minha filha costuma cansar rápido de atividade, mas essa ela quis continuar fazendo. Ela gostou de pintar, ligar as imagens e brincar com as palavras. Para mim foi ótimo porque não precisei montar nada do zero."</p>
         <strong>Patrícia Almeida</strong>
         <span>Mãe da Helena, 4 anos</span>
       </article>
@@ -1043,7 +1145,7 @@
           <i class="fa-solid fa-star"></i>
         </div>
 
-        <p>"Virou um momento gostoso aqui em casa. Minha filha pede para fazer as atividades quase todos os dias."</p>
+        <p>"Eu não falo inglês fluente, então tinha medo de ensinar errado. Com o material ficou bem mais simples. A gente fez aos poucos, como uma brincadeira, e ela já começou a lembrar cores e animais em inglês"</p>
         <strong>Renata Souza</strong>
         <span>Mãe da Laura, 6 anos</span>
       </article>
@@ -1051,28 +1153,39 @@
   </div>
 </section>
 
-    <section class="section" aria-label="O que você recebe">
+<section class="section" aria-label="Benefícios do aprendizado">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">O que você recebe</div>
-          <h2>Tudo pronto para começar</h2>
+          <div class="section-tag">Benefícios reais</div>
+          <h2>Seu filho aprende inglês brincando, sem pressão e sem complicação</h2>
           <p class="section-subtitle">
-            Um material digital prático, educativo e preparado para uso imediato.
+           Com atividades simples e divertidas, a criança começa a reconhecer palavras em inglês enquanto pinta, liga, repete e aprende no ritmo dela.
           </p>
         </div>
 
-        <div class="receive-list">
-          <div class="receive-item"><i class="fa-solid fa-file-arrow-down"></i><span>Kit completo de atividades organizadas por tema</span></div>
-          <div class="receive-item"><i class="fa-solid fa-print"></i><span>Atividades prontas para imprimir em casa</span></div>
-          <div class="receive-item"><i class="fa-solid fa-graduation-cap"></i><span>Conteúdo educativo pensado para crianças de 3 a 8 anos</span></div>
-          <div class="receive-item"><i class="fa-solid fa-bolt"></i><span>Acesso imediato após a confirmação do pagamento</span></div>
-        </div>
+        <div class="grid">
+          <article class="panel">
+            <div class="benefit-icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Aprender vira brincadeira</h3>
+            <p>Atividades com pintura, associação e repetição para manter a criança interessada sem parecer uma aula chata.</p>
+          </article>
 
-        <div class="receive-note">
-          Material digital com liberação rápida e uso simples para a rotina da família.
+          <article class="panel">
+            <div class="benefit-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Aprende as primeiras palavras</h3>
+            <p>Cores, animais, números, frutas e família entram na rotina da criança de um jeito leve e natural.</p>
+          </article>
+
+          <article class="panel">
+            <div class="benefit-icon"><i class="fa-solid fa-volume-high"></i></div>
+            <h3>Mais confiança com o inglês</h3>
+            <p>A criança cria um primeiro contato positivo com o idioma, ouvindo, repetindo e reconhecendo palavras aos poucos.</p>
+          </article>
         </div>
       </div>
     </section>
+
+  
 
     <section class="final-section" id="comprar" aria-label="Oferta final">
       <div class="container">
