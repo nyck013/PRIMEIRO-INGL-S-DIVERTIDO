@@ -1372,6 +1372,9 @@
 const mobileCheckoutButton = document.getElementById("mobileCheckoutButton");
 const mobilePriceEl = document.getElementById("mobilePrice");
 const checkoutLinks = document.querySelectorAll(".checkout-link");
+  const bonusBox = document.querySelector(".bonus-box");
+const bonusLabels = document.querySelectorAll(".bonus-label");
+const offerChecks = document.querySelectorAll(".offer-checks li");
   
   const checkoutPromocional = "https://pay.cakto.com.br/35xwjez_837156";
   const checkoutNormal = "https://pay.cakto.com.br/nmbr4it";
@@ -1398,6 +1401,18 @@ const checkoutLinks = document.querySelectorAll(".checkout-link");
   if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
   if (priceNoteEl) priceNoteEl.textContent = "Oferta promocional encerrada. Valor normal aplicado.";
 
+    if (bonusBox) bonusBox.style.display = "none";
+
+bonusLabels.forEach((label) => {
+  label.style.display = "none";
+});
+
+offerChecks.forEach((item) => {
+  if (item.textContent.toLowerCase().includes("bônus")) {
+    item.style.display = "none";
+  }
+});
+
   mudarTodosCheckouts(checkoutNormal);
 
   if (checkoutButton) {
@@ -1416,6 +1431,16 @@ function ativarPrecoPromocional() {
   if (currentPriceEl) currentPriceEl.textContent = "R$27,90";
   if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
   if (priceNoteEl) priceNoteEl.textContent = "Liberação rápida após a compra.";
+
+ if (bonusBox) bonusBox.style.display = "block";
+
+bonusLabels.forEach((label) => {
+  label.style.display = "inline-flex";
+});
+
+offerChecks.forEach((item) => {
+  item.style.display = "flex";
+});
 
   mudarTodosCheckouts(checkoutPromocional);
 
