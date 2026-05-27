@@ -1397,7 +1397,7 @@ const offerChecks = document.querySelectorAll(".offer-checks li");
   function ativarPrecoNormal() {
   if (countdownEl) countdownEl.textContent = "Oferta encerrada";
   if (oldPriceEl) oldPriceEl.style.display = "none";
-  if (currentPriceEl) currentPriceEl.textContent = "R$47,00";
+  if (currentPriceEl) currentPriceEl.textContent = "R$32,90";
   if (priceDescEl) priceDescEl.textContent = "Pagamento único • acesso imediato";
   if (priceNoteEl) priceNoteEl.textContent = "Oferta promocional encerrada. Valor normal aplicado.";
 
@@ -1416,7 +1416,7 @@ offerChecks.forEach((item) => {
   mudarTodosCheckouts(checkoutNormal);
 
   if (checkoutButton) {
-    checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> COMPRAR AGORA POR R$47,00';
+    checkoutButton.innerHTML = '<i class="fa-solid fa-download"></i> COMPRAR AGORA POR R$32,90';
   }
 
   if (mobilePriceEl) mobilePriceEl.textContent = "R$32,90";
