@@ -1321,28 +1321,7 @@
   defer
 ></script>
   
-<!-- Pacotfy | Integrações -->
-<script>
-(function(){
-var C={
-  "userId": "user_demo",
-  "pixelId": "799896276224471",
-  "endpoint": "http://localhost:3000/api/tracking/events",
-  "checkoutUrl": "https://pay.wiapy.com/THdLgdNclu",
-  "browserPixel": true
-};
-var K='pacotfy_integracoes_ctx_'+C.userId,V='pacotfy_integracoes_vid_'+C.userId;
-function id(p){return p+'_'+Date.now()+'_'+Math.random().toString(16).slice(2)}
-function ck(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):''}
-function sc(n,v){var d=new Date;d.setTime(d.getTime()+90*864e5);document.cookie=n+'='+encodeURIComponent(v)+'; expires='+d.toUTCString()+'; path=/; SameSite=Lax'}
-function vid(){var v=localStorage.getItem(V);if(!v){v=id('visitor');localStorage.setItem(V,v)}return v}
-function ctx(){var p=new URLSearchParams(location.search),o={};try{o=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}var fbclid=p.get('fbclid')||o.fbclid||'',fbc=ck('_fbc')||o.fbc||'';if(!fbc&&fbclid){fbc='fb.1.'+Date.now()+'.'+fbclid;sc('_fbc',fbc)}var d=Object.assign({},o,{visitor_id:vid(),utm_source:p.get('utm_source')||o.utm_source||'',utm_campaign:p.get('utm_campaign')||o.utm_campaign||'',utm_medium:p.get('utm_medium')||o.utm_medium||'',utm_content:p.get('utm_content')||o.utm_content||'',utm_term:p.get('utm_term')||o.utm_term||'',fbclid:fbclid,fbp:ck('_fbp')||o.fbp||'',fbc:fbc,origin_url:o.origin_url||document.referrer||'',current_url:location.href,clicked_at:o.clicked_at||new Date().toISOString()});localStorage.setItem(K,JSON.stringify(d));return d}
-function px(ev,eid,data){if(!C.browserPixel||!C.pixelId)return;if(!window.fbq){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.pixelId)}fbq('track',ev,data||{},{eventID:eid})}
-function send(ev,data){var eid=id(ev.toLowerCase()),payload={userId:C.userId,event_name:ev,event_id:eid,tracking:ctx(),custom_data:data||{},event_source_url:location.href};px(ev,eid,data||{});var body=JSON.stringify(payload);if(navigator.sendBeacon)navigator.sendBeacon(C.endpoint,new Blob([body],{type:'application/json'}));else fetch(C.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:body,keepalive:true});return eid}
-function decorate(){document.querySelectorAll('a[data-pacotfy-checkout]').forEach(function(a){try{var u=new URL(a.href),c=ctx();Object.keys(c).forEach(function(k){if(c[k])u.searchParams.set(k,c[k])});u.searchParams.set('pacotfy_visitor_id',c.visitor_id);a.href=u.toString()}catch(e){}})}
-window.PacotfyIntegracoes={track:send,context:ctx};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',decorate);else decorate();send('PageView');
-})();
-</script>
+
   
   <script>
     const videoWrapper = document.querySelector('.video-wrapper');
